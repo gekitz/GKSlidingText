@@ -16,7 +16,7 @@ Ever wanted the use the same Sliding Text like Apple uses on the lock screen or 
 ### Sample Code
 ===============
 	
-		GKSlidingText *slidingText = [[GKSlidingText alloc] initWithFrame:CGRectMake(20, 160, 280, 25)];
+	GKSlidingText *slidingText = [[GKSlidingText alloc] initWithFrame:CGRectMake(20, 160, 280, 25)];
 		
 	slidingText.text = @"This is a sliding text wohooo slide slide...";
 	[self.view addSubview:slidingText];
