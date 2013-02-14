@@ -190,6 +190,15 @@ typedef NS_ENUM(NSUInteger, GKSlidingTextState) {
 	
 	textLayer.string = (id) self.text;
 	textLayer.foregroundColor = self.textColor.CGColor;
+	
+	//set all the shado
+	if (self.shadowColor != nil) {
+		textLayer.shadowColor = self.shadowColor.CGColor;
+		textLayer.shadowOffset = self.shadowOffset;
+		textLayer.shadowRadius = 0.0f;
+		textLayer.shadowOpacity = 1.0f;
+	}
+
 	textLayer.fontSize = self.font.pointSize;
 	
 	CFStringRef font = CFStringCreateWithCString(kCFAllocatorDefault, [[self.font fontName] UTF8String], kCFStringEncodingUTF8);
