@@ -185,11 +185,12 @@ typedef NS_ENUM(NSUInteger, GKSlidingTextState) {
 {
 	CATextLayer *textLayer = [CATextLayer layer];
 	textLayer.backgroundColor = [UIColor clearColor].CGColor;
-	textLayer.string = (id) self.text;
 	textLayer.contentsScale = GKDeviceScale();
 	textLayer.alignmentMode = kCAAlignmentCenter;
-	textLayer.fontSize = self.font.pointSize;
 	
+	textLayer.string = (id) self.text;
+	textLayer.foregroundColor = self.textColor.CGColor;
+	textLayer.fontSize = self.font.pointSize;
 	
 	CFStringRef font = CFStringCreateWithCString(kCFAllocatorDefault, [[self.font fontName] UTF8String], kCFStringEncodingUTF8);
 	textLayer.font = font;
