@@ -61,6 +61,16 @@ typedef NS_ENUM(NSUInteger, GKSlidingTextState) {
 	[self setNeedsLayout];
 }
 
+- (void)setFrame:(CGRect)frame
+{
+	if (CGRectEqualToRect(self.frame, frame)) {
+		return;
+	}
+	
+	[self _cleanupSlidingText];
+	[super setFrame:frame];
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Private Methods

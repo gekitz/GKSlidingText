@@ -10,7 +10,8 @@
 #import "GKSlidingText.h"
 
 @interface GKViewController ()
-
+@property (nonatomic, strong) GKSlidingText *noneSlidingText;
+@property (nonatomic, strong) GKSlidingText *slidingText;
 @end
 
 @implementation GKViewController
@@ -20,13 +21,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	GKSlidingText *noneSlidingText = [[GKSlidingText alloc] initWithFrame:CGRectMake(20, 100, 280, 25)];
-	noneSlidingText.text = @"This is a none sliding text";
-	[self.view addSubview:noneSlidingText];
+	self.noneSlidingText = [[GKSlidingText alloc] initWithFrame:CGRectMake(20, 100, 280, 25)];
+	self.noneSlidingText.text = @"This is a none sliding text";
+	[self.view addSubview:self.noneSlidingText];
 	
-	GKSlidingText *slidingText = [[GKSlidingText alloc] initWithFrame:CGRectMake(20, 160, 280, 25)];
-	slidingText.text = @"This is a sliding text wohooo slide slide...";
-	[self.view addSubview:slidingText];
+	self.slidingText = [[GKSlidingText alloc] initWithFrame:CGRectMake(20, 160, 280, 25)];
+	self.slidingText.text = @"This is a sliding text wohooo slide slide...";
+	[self.view addSubview:self.slidingText];
+}
+
+- (void)viewWillLayoutSubviews
+{
+	self.noneSlidingText.frame = CGRectMake(20, 100, CGRectGetWidth(self.view.bounds) - 40, 25);
+	self.slidingText.frame = CGRectMake(20, 160, CGRectGetWidth(self.view.bounds) - 40, 25);
 }
 
 - (void)didReceiveMemoryWarning
